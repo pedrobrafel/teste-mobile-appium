@@ -2,7 +2,7 @@ const { join } = require('path')
 
 exports.config = {
     baseUrl: 'http://localhost',
-    port: 4327,
+    port: 4723,
     path: '/wd/hub',
     udid: "emulator-5554",
     timeout: 99999999,
