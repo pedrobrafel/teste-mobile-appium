@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio run wdio.conf.js"
+    "test": "wdio run wdio.conf.js",
+    "log": "adb logcat | grep wdio"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@wdio/cli": "^8.3.2"
+    "@wdio/allure-reporter": "^8.3.0",
+    "@wdio/cli": "^8.3.2",
+    "allure-commandline": "^2.20.1"
   },
   "devDependencies": {
     "@wdio/appium-service": "^8.3.2",
