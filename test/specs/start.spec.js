@@ -1,22 +1,20 @@
 describe('Formulario - Webdriver io', () => {
     it('Deve acessar e preencher o menu Forms', async () => {
         await $('~Forms').click()
-        await $('~text-input').waitForExist({timeout: 99999999})
-        await $('~text-input').setValue('Texto teste')
+        await $('~text-input').setValue('Pedro teste')
         expect(await $('~text-input')).toBeDisplayed()
 
         await $('~switch').click()
-        await $('~switch-text').waitForExist({timeout: 99999999})
+        await $('~switch').waitForExist()
         expect(await $('~switch-text')).toHaveText('Click to turn the switch OFF')
 
-        // await $('~Dropdown').click()
-        // await $('~android:id/text1').selectByIndex(1)
-        // expect(await $('~android:id/text1')).toHaveText('webdriver.io is awesome')
-        
+        await $('~Dropdown').click()
+        await $('resource-id').getValue('webdriver.io is awesome')
+        expect(await $('//android.view.ViewGroup[@content-desc="Dropdown"]/android.view.ViewGroup/android.widget.EditText')).toHaveText('webdriver.io is awesome')
 
-        // await $('button-Active').click()
-        // await $('android:id/parentPanel').waitForExist({timeout: 1000000})
-        // await $('android:id/button1').click()
-
-    }); 
+        await $('~button-Active').click()
+        await $('~android:id/parentPanel').toBeDisplayed()
+        await $('~android:id/button1').click()
+        expect(await $('~android:id/parentPanel')).waitForExist({ reverse: true })
+    });
 });
